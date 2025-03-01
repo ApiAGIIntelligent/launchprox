@@ -603,54 +603,24 @@
                 blankWindow.document.write(`
                     <html>
                     <head>
-                        <title>Proxy Redirect</title>
+                        <title>Proxy Launcher</title>
                         <style>
                             body {
-                                font-family: 'Segoe UI', Arial, sans-serif;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                height: 100vh;
                                 margin: 0;
-                                background: linear-gradient(135deg, #4a00e0, #8e2de2);
+                                padding: 0;
+                                height: 100vh;
+                                overflow: hidden;
+                                background: #f0f0f0;
                             }
-                            .container {
-                                text-align: center;
-                                padding: 40px;
-                                background: white;
-                                border-radius: 20px;
-                                box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-                            }
-                            h2 {
-                                color: #4a00e0;
-                                margin-bottom: 20px;
-                            }
-                            p {
-                                color: #2d3436;
-                                margin-bottom: 30px;
-                            }
-                            button {
-                                padding: 12px 30px;
-                                font-size: 16px;
-                                color: white;
-                                background: linear-gradient(45deg, #4a00e0, #8e2de2);
+                            iframe {
+                                width: 100%;
+                                height: 100%;
                                 border: none;
-                                border-radius: 25px;
-                                cursor: pointer;
-                                transition: all 0.3s ease;
-                            }
-                            button:hover {
-                                transform: translateY(-3px);
-                                box-shadow: 0 6px 20px rgba(74, 0, 224, 0.3);
                             }
                         </style>
                     </head>
                     <body>
-                        <div class="container">
-                            <h2>Proceed to Proxy</h2>
-                            <p>This tab is set to about:blank. Click below to visit the proxy site:</p>
-                            <button onclick="window.location.href='${url}'">Go to Proxy</button>
-                        </div>
+                        <iframe src="${url}" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation"></iframe>
                     </body>
                     </html>
                 `);
